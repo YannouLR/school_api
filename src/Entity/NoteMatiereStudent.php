@@ -4,13 +4,11 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\NoteMatiereStudentRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: NoteMatiereStudentRepository::class)]
 #[ApiResource(normalizationContext:['groups' => ['read_NoteMatiereStudent']], denormalizationContext: ['groups' => ['write_NoteMatiereStudent']])]
-#[ApiResource]
 class NoteMatiereStudent
 {
     #[ORM\Id]
@@ -30,12 +28,6 @@ class NoteMatiereStudent
     #[ORM\ManyToOne(targetEntity: Matiere::class, inversedBy: 'noteMatiereStudents')]
     #[Groups(['read_NoteMatiereStudent', 'write_NoteMatiereStudent'])]
     private $matiere;
-
-    public function __construct()
-    {
-        $this->student = new ArrayCollection();
-        $this->matiere = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {

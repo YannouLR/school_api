@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Matiere;
 use App\Entity\Student;
 use App\Entity\Study;
 use App\Entity\User;
@@ -27,5 +28,13 @@ class AppFixtures extends Fixture
         $manager->persist($student);
         $manager->flush();
 
+
+        $matiere = (new Matiere())->setTitle("Histoire-géographie");
+        $matiere = (new Matiere())->setTitle("Français");
+        $matiere = (new Matiere())->setTitle("Mathématiques");
+        $matiere = (new Matiere())->setTitle("Sciences");
+        $matiere = (new Matiere())->setTitle("Sport");
+        $manager->persist($matiere);
+        $manager->flush();
     }
 }
