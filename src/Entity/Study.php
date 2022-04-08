@@ -31,6 +31,10 @@ class Study
     #[Groups(['read_Study', 'write_Study'])]
     private $subject;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['read_Study', 'write_Study'])]
+    private $name;
+
     public function __construct()
     {
         $this->student = new ArrayCollection();
@@ -114,6 +118,29 @@ class Study
     public function removeSubject(Matiere $subject): self
     {
         $this->subject->removeElement($subject);
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+
+    /**
+     * Set the value of id
+     */
+    public function setId($id): self
+    {
+        $this->id = $id;
 
         return $this;
     }
