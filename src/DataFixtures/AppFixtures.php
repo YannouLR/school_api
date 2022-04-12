@@ -58,6 +58,7 @@ class AppFixtures extends Fixture
         $student1->setSexe('boy');
         $student1->setMailParent('iop@poi.fr');
         $student1->setStudyplace($study1);
+        $student1->setRoles(['ROLE_STUDENT']);
         $manager->persist($student1);
 
         $student2 = (new Student())->setEmail("mlk@klm.fr");
@@ -68,6 +69,7 @@ class AppFixtures extends Fixture
         $student2->setSexe('boy');
         $student2->setMailParent('klm@mlk.fr');
         $student2->setStudyplace($study1);
+        $student2->setRoles(['ROLE_STUDENT']);
         $manager->persist($student2);
 
         $student3 = (new Student())->setEmail("oiu@uio.fr");
@@ -78,6 +80,7 @@ class AppFixtures extends Fixture
         $student3->setSexe('girl');
         $student3->setMailParent('uio@oiu.fr');
         $student3->setStudyplace($study2);
+        $student3->setRoles(['ROLE_STUDENT']);
         $manager->persist($student3);
 
         $student4 = (new Student())->setEmail("lkj@jkl.fr");
@@ -88,6 +91,7 @@ class AppFixtures extends Fixture
         $student4->setSexe('boy');
         $student4->setMailParent('jkl@lkj.fr');
         $student4->setStudyplace($study2);
+        $student4->setRoles(['ROLE_STUDENT']);
         $manager->persist($student4);
 
         $student5 = (new Student())->setEmail("nbv@vbn.fr");
@@ -98,6 +102,7 @@ class AppFixtures extends Fixture
         $student5->setSexe('girl');
         $student5->setMailParent('vbn@nbv.fr');
         $student5->setStudyplace($study3);
+        $student5->setRoles(['ROLE_STUDENT']);
         $manager->persist($student5);
 
         $student6 = (new Student())->setEmail("jhg@ghj.fr");
@@ -108,6 +113,7 @@ class AppFixtures extends Fixture
         $student6->setSexe('boy');
         $student6->setMailParent('ghj@jhg.fr');
         $student6->setStudyplace($study3);
+        $student6->setRoles(['ROLE_STUDENT']);
         $manager->persist($student6);
 
         $student7 = (new Student())->setEmail("ert@tre.fr");
@@ -118,6 +124,7 @@ class AppFixtures extends Fixture
         $student7->setSexe('girl');
         $student7->setMailParent('tre@ert.fr');
         $student7->setStudyplace($study4);
+        $student7->setRoles(['ROLE_STUDENT']);
         $manager->persist($student7);
 
         $student8 = (new Student())->setEmail("aze@eza.fr");
@@ -128,6 +135,7 @@ class AppFixtures extends Fixture
         $student8->setSexe('boy');
         $student8->setMailParent('eza@aze.fr');
         $student8->setStudyplace($study4);
+        $student8->setRoles(['ROLE_STUDENT']);
         $manager->persist($student8);
 
         $student9 = (new Student())->setEmail("wxc@cxw.fr");
@@ -138,6 +146,7 @@ class AppFixtures extends Fixture
         $student9->setSexe('boy');
         $student9->setMailParent('cxw@wxc.fr');
         $student9->setStudyplace($study5);
+        $student9->setRoles(['ROLE_STUDENT']);
         $manager->persist($student9);
 
         $student10 = (new Student())->setEmail("dfg@gfd.fr");
@@ -148,6 +157,7 @@ class AppFixtures extends Fixture
         $student10->setSexe('boy');
         $student10->setMailParent('gfd@dfg.fr');
         $student10->setStudyplace($study5);
+        $student10->setRoles(['ROLE_STUDENT']);
         $manager->persist($student10);
 
         
@@ -177,6 +187,7 @@ class AppFixtures extends Fixture
         $professor->setAge(48);
         $professor->setWorkAge(23);
         $professor->setStudyplace($study1);
+        $professor->setRoles(['ROLE_TEACHER']);
         $manager->persist($professor);
 
         $professor = (new Professor())->setEmail("789@987.fr");
@@ -188,6 +199,7 @@ class AppFixtures extends Fixture
         $professor->setAge(26);
         $professor->setWorkAge(4);
         $professor->setStudyplace($study2);
+        $professor->setRoles(['ROLE_TEACHER']);
         $manager->persist($professor);
 
         $professor = (new Professor())->setEmail("147@741.fr");
@@ -199,6 +211,7 @@ class AppFixtures extends Fixture
         $professor->setAge(54);
         $professor->setWorkAge(30);
         $professor->setStudyplace($study3);
+        $professor->setRoles(['ROLE_TEACHER']);
         $manager->persist($professor);
 
         $professor = (new Professor())->setEmail("369@963.fr");
@@ -210,6 +223,7 @@ class AppFixtures extends Fixture
         $professor->setAge(32);
         $professor->setWorkAge(7);
         $professor->setStudyplace($study4);
+        $professor->setRoles(['ROLE_TEACHER']);
         $manager->persist($professor);
 
         $professor = (new Professor())->setEmail("478@874.fr");
@@ -221,6 +235,7 @@ class AppFixtures extends Fixture
         $professor->setAge(22);
         $professor->setWorkAge(0);
         $professor->setStudyplace($study5);
+        $professor->setRoles(['ROLE_TEACHER']);
         $manager->persist($professor);
 
 //_________________________________________Director_x1__________________________________________________\\

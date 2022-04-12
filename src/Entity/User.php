@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\DiscriminatorColumn;
@@ -9,33 +10,42 @@ use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\InheritanceType;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
+#[ApiResource(normalizationContext:['groups' => ['read_User']], denormalizationContext: ['groups' => ['write_User']])]
 
-#[InheritanceType("SINGLE_TABLE")]
+
+#[InheritanceType("JOINED")]
 #[DiscriminatorColumn(name: "status", type: "string")]
-#[DiscriminatorMap(["student" => "Student", "professor" => "Professor", "director" => "Director"])]
+#[DiscriminatorMap(["Student","Professor","Director", "User", "Study"])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['read_User', 'write_User', 'read_Student', 'write_Student', 'read_Study', 'write_Study'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Groups(['read_User', 'write_User', 'read_Student', 'write_Student', 'read_Study', 'write_Study'])]
     private $email;
 
     #[ORM\Column(type: 'json')]
+    #[Groups(['read_User', 'write_User', 'read_Student', 'write_Student', 'read_Study', 'write_Study'])]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Groups(['read_User', 'write_User'])]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['read_User', 'write_User', 'read_Student', 'write_Student', 'read_Study', 'write_Study'])]
     private $firstname;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['read_User', 'write_User','read_Student', 'write_Student', 'read_Study', 'write_Study'])]
     private $lastname;
 
     public function getFirstname(): ?string

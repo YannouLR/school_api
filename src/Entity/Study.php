@@ -24,7 +24,7 @@ class Study
     private $student;
 
     #[ORM\OneToOne(mappedBy: 'studyplace', targetEntity: Professor::class, cascade: ['persist', 'remove'])]
-    #[Groups(['read_Study', 'write_Study'])]
+    #[Groups(['read_Study', 'write_Study', 'read_Student', 'write_Student'])]
     private $professor;
 
     #[ORM\ManyToMany(targetEntity: Matiere::class, inversedBy: 'studies')]
@@ -32,7 +32,7 @@ class Study
     private $subject;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups(['read_Study', 'write_Study'])]
+    #[Groups(['read_Study', 'write_Study', 'read_Student', 'write_Student'])]
     private $name;
 
     public function __construct()
